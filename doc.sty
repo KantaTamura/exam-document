@@ -1,5 +1,5 @@
 \usepackage[jis2004]{otf}
-\usepackage{calc, amssymb, url, ifthen, wrapfig, graphicx, tabularx, amsmath, amsthm, physics, efbox}
+\usepackage{calc, amssymb, url, ifthen, wrapfig, graphicx, tabularx, amsmath, amsthm, physics, efbox, enumitem}
 \usepackage{booktabs, multirow}
 \usepackage[margin = 16truemm]{geometry}
 
@@ -9,6 +9,7 @@
 %% color
 \usepackage[x11names]{xcolor}
 \definecolor{capblue}{rgb}{0.31, 0.51, 0.74}
+\definecolor{capred}{rgb}{0.89, 0.32, 0.20}
 
 %% booktabs
 \usepackage[bookmarksnumbered]{hyperref}
@@ -65,7 +66,7 @@
 \titleformat{\subsection}{\color{capblue}}{}{0pt}{
 	\titleline[l]{\efbox[hidealllines, margin = 5pt, backgroundcolor = capblue]{\textcolor{white}{\textbf{\thesubsection}}}\hspace{1zw}#1}\vspace*{0pt}\titlerule
 }
-\titleformat{\subsubsection}{}{}{0pt}{\titleline[l]{【#1】}}
+\titleformat{\subsubsection}{}{}{0pt}{\titleline[l]{■#1}}
 \titlespacing*{\chapter}{0pt}{-10pt}{-10pt}
 \titlespacing*{\section}{0pt}{-10pt}{-10pt}
 \titlespacing*{\subsection}{0pt}{-10pt}{-10pt}
@@ -119,7 +120,7 @@
 	fonttitle=\gtfamily, IfValueTF={#1}{title=【#2】〈#1〉}{title=【#2】},#4}
 
 %% array stretch
-\renewcommand{\arraystretch}{0.8}
+\renewcommand{\arraystretch}{0.9}
 
 %% reference
 \newcommand{\fref}[1]{図\ref{#1}}
@@ -139,6 +140,14 @@
 \let\olditemize\itemize
 \renewcommand{\itemize}{
 	\olditemize
+	\setlength{\itemsep}{1pt}
+	\setlength{\parskip}{0pt}
+	\setlength{\parsep}{0pt}
+	\setlength{\itemindent}{-20pt}
+}
+\let\olddescription\description
+\renewcommand{\description}{
+	\olddescription
 	\setlength{\itemsep}{1pt}
 	\setlength{\parskip}{0pt}
 	\setlength{\parsep}{0pt}
